@@ -90,8 +90,6 @@ public class Venus extends ApplicationAdapter {
         cam.position.x = MathUtils.clamp(cam.position.x, effectiveViewportWidth / 2f, 100 - effectiveViewportWidth / 2f);
         cam.position.y = MathUtils.clamp(cam.position.y, effectiveViewportHeight / 2f, 100 - effectiveViewportHeight / 2f);
 
-        cam.
-
     }
 
     @Override

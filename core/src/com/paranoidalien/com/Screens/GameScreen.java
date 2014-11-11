@@ -20,7 +20,7 @@ public class GameScreen implements Screen{
     private SpriteBatch batch;
     private Texture img;
     //private OrthographicCamera cam;
-    private Sprite mapSprite;
+    private Sprite mapSprite, nolanSprite;
     private float rotationSpeed;
 
     OrthographicCamera cam;
@@ -33,6 +33,13 @@ public class GameScreen implements Screen{
         mapSprite = new Sprite(new Texture(Gdx.files.internal("sc_map.png")));
         mapSprite.setPosition(0, 0);
         mapSprite.setSize(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT);
+
+        img = new Texture(Gdx.files.internal("Nolan.jpg"));
+        nolanSprite = new Sprite(img, 0, 0, 128, 128);
+        nolanSprite.setOriginCenter();
+        nolanSprite.setPosition(49.5f, 49.5f);
+        nolanSprite.setSize(1, 1);
+
 
         float w = Gdx.graphics.getWidth();
         float h = Gdx.graphics.getHeight();
@@ -58,7 +65,11 @@ public class GameScreen implements Screen{
 
         batch.begin();
         mapSprite.draw(batch);
+        nolanSprite.draw(batch);
+        //batch.draw(img, 48, 48, 0, 0, 4, 4, 1f, 1f, 0, 0, 0, 128, 128, false, false);
         batch.end();
+        System.out.println(batch.renderCalls);
+
 
     }
 

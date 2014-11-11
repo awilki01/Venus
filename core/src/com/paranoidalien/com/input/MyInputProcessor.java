@@ -43,8 +43,8 @@ public class MyInputProcessor implements InputProcessor {
 
         // Convert screen coordinate system to world coordinate system
         cam.unproject(screenCoords);
-        System.out.println("Real screen coords: " + screenX + ", " + screenY);
-        System.out.println("World Coords:" + screenCoords + " pointer:" + pointer + " button:" + button);
+        //System.out.println("Real screen coords: " + screenX + ", " + screenY);
+        //System.out.println("World Coords:" + screenCoords + " pointer:" + pointer + " button:" + button);
 
         return false;
     }
@@ -66,8 +66,7 @@ public class MyInputProcessor implements InputProcessor {
 
     @Override
     public boolean scrolled(int amount) {
-        //cam.zoom += amount * 0.2f;
-        cam.rotate(amount);
+        cam.zoom += amount * 0.2f;
         return false;
     }
 }

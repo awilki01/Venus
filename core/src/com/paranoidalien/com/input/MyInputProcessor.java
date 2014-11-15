@@ -4,6 +4,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
 import static com.badlogic.gdx.Input.Keys.SPACE;
@@ -14,11 +15,12 @@ import static com.badlogic.gdx.Input.Keys.SPACE;
 public class MyInputProcessor implements InputProcessor {
 
     private OrthographicCamera cam;
-    Vector3 screenCoords;
+    Vector3 screenCoords, screenCoords2;
 
     public MyInputProcessor(OrthographicCamera cam){
         this.cam = cam;
         screenCoords = new Vector3();
+        screenCoords2 = new Vector3();
     }
 
     @Override
@@ -45,7 +47,7 @@ public class MyInputProcessor implements InputProcessor {
         cam.unproject(screenCoords);
         //System.out.println("Real screen coords: " + screenX + ", " + screenY);
         //System.out.println("World Coords:" + screenCoords + " pointer:" + pointer + " button:" + button);
-
+        cam.position.set(screenCoords);
         return false;
     }
 
@@ -56,6 +58,7 @@ public class MyInputProcessor implements InputProcessor {
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
+
         return false;
     }
 
@@ -67,6 +70,7 @@ public class MyInputProcessor implements InputProcessor {
     @Override
     public boolean scrolled(int amount) {
         cam.zoom += amount * 0.2f;
+
         return false;
     }
 }

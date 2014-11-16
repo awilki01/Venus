@@ -71,6 +71,7 @@ public class MyInputProcessor implements InputProcessor {
     public boolean scrolled(int amount) {
         cam.zoom += amount * 0.2f;
 
+
         return false;
     }
 }
